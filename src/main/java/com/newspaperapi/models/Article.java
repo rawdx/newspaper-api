@@ -4,9 +4,12 @@ import java.util.Calendar;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -33,5 +36,15 @@ public class Article {
 	@Column(name = "content", columnDefinition = "TEXT", nullable = false)
 	private String content;
 	
-	@Column
+	@Column(name = "priority_score", nullable = false)
+	private int priorityScore;
+
+	@ManyToOne()
+	@JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_article_category"))
+	private Category category;
+	
+	@ManyToOne()
+	@JoinColumn(name = "writer_id", foreignKey = @ForeignKey(name = "fk_article_writer"))
+	private User user;
+
 }
