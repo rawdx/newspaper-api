@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.newspaperapi.dtos.UserDto;
 import com.newspaperapi.models.User;
 import com.newspaperapi.services.UserService;
 
@@ -30,8 +31,8 @@ public class UserController {
 	}
 
 	@GetMapping(path = "/{email}")
-	public Optional<User> getUserByEmail(@PathVariable("email") String email) {
-		return this.userService.getUserByEmail(email);
+	public Optional<UserDto> getUserByEmail(@PathVariable("email") String email) {
+		return this.userService.getUserEmailAndCredential(email);
 	}
 
 	@PostMapping

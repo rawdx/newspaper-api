@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.newspaperapi.dtos.UserDto;
 import com.newspaperapi.models.User;
 import com.newspaperapi.repositories.UserRepository;
 
@@ -18,8 +19,8 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public Optional<User> getUserByEmail(String email) {
-		return userRepository.findByEmail(email);
+	public Optional<UserDto> getUserEmailAndCredential(String email) {
+		return userRepository.findEmailAndCredentialByEmail(email);
 	}
 
 	public void createUser(User user) {
