@@ -29,9 +29,9 @@ public class UserController {
 		return this.userService.getAllUsers();
 	}
 
-	@GetMapping(path = "/{id}")
-	public Optional<User> getUser(@PathVariable("id") Long id) {
-		return this.userService.getUser(id);
+	@GetMapping(path = "/{email}")
+	public Optional<User> getUserByEmail(@PathVariable("email") String email) {
+		return this.userService.getUserByEmail(email);
 	}
 
 	@PostMapping

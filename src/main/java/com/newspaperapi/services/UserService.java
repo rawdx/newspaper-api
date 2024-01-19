@@ -18,10 +18,10 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public Optional<User> getUser(Long id) {
-		return userRepository.findById(id);
+	public Optional<User> getUserByEmail(String email) {
+		return userRepository.findByEmail(email);
 	}
-	
+
 	public void createUser(User user) {
 		userRepository.save(user);
 	}
@@ -42,13 +42,12 @@ public class UserService {
 		try {
 			userRepository.deleteById(id);
 			return true;
-		}catch(IllegalArgumentException e)
-		{
+		} catch (IllegalArgumentException e) {
 			return false;
 		}
 	}
-	
+
 	public boolean emailExists(String email) {
-        return userRepository.existsByEmail(email);
-    }
+		return userRepository.existsByEmail(email);
+	}
 }
