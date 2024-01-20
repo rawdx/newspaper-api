@@ -8,6 +8,7 @@ public class UserDto {
 		private String name;
 		private String phoneNumber;
 		private byte[] profilePicture;
+		private boolean isVerified;
 		private boolean isSuscribed;
 		private boolean isWriter;
 		private boolean isAdmin;
@@ -85,6 +86,15 @@ public class UserDto {
 		}
 
 		
+		public boolean isVerified() {
+			return isVerified;
+		}
+
+		
+		public void setVerified(boolean isVerified) {
+			this.isVerified = isVerified;
+		}
+
 		public boolean isSuscribed() {
 			return isSuscribed;
 		}
